@@ -16,3 +16,5 @@ pydicom
 python-gdcm
 python-dotenv
 wget
+albumentations
+segmentation-models-pytorch
