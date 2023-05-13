@@ -25,3 +25,14 @@ def initiate_wandb_run(config: Dict, project_name:str = config.PROJECT_NAME, not
 
     # Initialize config for this experiment
     wandb.config = config
+    
+def initiate_config_only(config: Dict):
+    """Function to initialize config
+
+    Args:
+        config (Dict): Config to set as wandb config
+    """
+    dotenv.load_dotenv('.env')
+    wandb.login()
+    
+    wandb.config = config
