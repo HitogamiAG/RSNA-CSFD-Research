@@ -119,6 +119,11 @@ def load_dataframes_and_masks():
 
     # Load dataframes
     train_UIDs, val_UIDs, test_UIDs = split_uids(meta_segm)
+    test_UIDs = [
+        '1.2.826.0.1.3680043.5783',
+        '1.2.826.0.1.3680043.10633',
+        '1.2.826.0.1.3680043.32658'
+    ]
     train_df = meta_segm[meta_segm.StudyInstanceUID.isin(train_UIDs)]
     val_df = meta_segm[meta_segm.StudyInstanceUID.isin(val_UIDs)]
     test_df = meta_segm[meta_segm.StudyInstanceUID.isin(test_UIDs)]
@@ -222,7 +227,6 @@ class RSNADataset(Dataset):
         # self.imgs = torch.as_tensor(self.imgs, dtype=torch.float32)
 
         if self.imgs.shape[0] == 0:
-            print('no imgs')
             return self.__getitem__()
 
         # Return batch data, e.g. X and y
